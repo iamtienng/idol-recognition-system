@@ -27,5 +27,5 @@ From that idea, I decided to go to the Microsoft API to create a celebrity datab
 * In Client Application, you can recognize an Idol by an URL, see what you found, delete history and your profile.
 
 ### Credits
-- The Goods Delivery is a full-stack project built with MEAN Stack architecture developed by Tien Nguyen.
+- The Idol Recognition System is a full-stack project built with Spring and Swing developed by Tien Nguyen.
 - Initial concept and development was done by Tien Nguyen.
