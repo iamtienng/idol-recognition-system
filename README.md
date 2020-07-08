@@ -1,4 +1,4 @@
-# Idol-Recognition-System
+# Idol Recognition System
 
 ### Ideal
 Have you ever browsed social networking, see a meme that has the face of a celebrity, assuming that person is a very pretty person and you want to find more information about them? You go through a lot of comments to find someone commenting their name but there is no information, and everyone seems already know this person. So, you have no information what that character. What would you do in this situation?
