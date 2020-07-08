@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="IdolRecognitionClient">
+  <ClassDiagramComponents>
+    <Class name="BeanList" package="com.iamtienng.em.bean" visibility="public" xPosition="1073.0" yPosition="873.0">
+      <Fields>
+        <Field name="kind" type="String" visibility="private"/>
+        <Field name="jpn" type="JPanel" visibility="private"/>
+        <Field name="jlb" type="JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="kind"/>
+          <Argument type="JPanel" name="jpn"/>
+          <Argument type="JLabel" name="jlb"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getKind" returnType="String" visibility="public"/>
+        <Method name="setKind" returnType="void" visibility="public">
+          <Argument type="String" name="kind"/>
+        </Method>
+        <Method name="getJpn" returnType="JPanel" visibility="public"/>
+        <Method name="setJpn" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jpn"/>
+        </Method>
+        <Method name="getJlb" returnType="JLabel" visibility="public"/>
+        <Method name="setJlb" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jlb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IdolDAOImpl" package="com.iamtienng.em.dao" visibility="public" xPosition="1452.0" yPosition="2323.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="findIdol" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HistoryDAOImpl" package="com.iamtienng.em.dao" visibility="public" xPosition="1308.0" yPosition="2009.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getList" returnType="List&lt;History&gt;" visibility="public"/>
+        <Method name="deleteHistory" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserDAOImpl" package="com.iamtienng.em.dao" visibility="public" xPosition="2007.0" yPosition="209.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="checkUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getUserInfo" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="changePassword" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="oldPassword"/>
+          <Argument type="String" name="newPassword"/>
+        </Method>
+        <Method name="createNewUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProfileController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="1256.0">
+      <Fields>
+        <Field name="jlbName" type="JLabel" visibility="private"/>
+        <Field name="jlbSurname" type="JLabel" visibility="private"/>
+        <Field name="jlbEmail" type="JLabel" visibility="private"/>
+        <Field name="jlbAccountType" type="JLabel" visibility="private"/>
+        <Field name="btnChangePassword" type="JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JLabel" name="jlbName"/>
+          <Argument type="JLabel" name="jlbSurname"/>
+          <Argument type="JLabel" name="jlbEmail"/>
+          <Argument type="JLabel" name="jlbAccountType"/>
+          <Argument type="JButton" name="btnChangePassword"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+        <Method name="setChangePassword" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IdolRecognitorController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="2187.0">
+      <Fields>
+        <Field name="jpnView" type="JPanel" visibility="private"/>
+        <Field name="btnAdd" type="JButton" visibility="private"/>
+        <Field name="jtfLink" type="JTextField" visibility="private"/>
+        <Field name="jlbMsg" type="JLabel" visibility="private"/>
+        <Field name="idolService" type="IdolService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPanel" name="jpnView"/>
+          <Argument type="JButton" name="btnAdd"/>
+          <Argument type="JTextField" name="jtfLink"/>
+          <Argument type="JLabel" name="jlbMsg"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserCreateNewUserController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="466.0">
+      <Fields>
+        <Field name="registerJFrame" type="JFrame" visibility="private"/>
+        <Field name="jtfName" type="JTextField" visibility="private"/>
+        <Field name="jtfSurname" type="JTextField" visibility="private"/>
+        <Field name="jtfEmail" type="JTextField" visibility="private"/>
+        <Field name="jpfPassword" type="JPasswordField" visibility="private"/>
+        <Field name="jpfPasswordConfirm" type="JPasswordField" visibility="private"/>
+        <Field name="jbtSubmit" type="JButton" visibility="private"/>
+        <Field name="jlbMsg" type="JLabel" visibility="private"/>
+        <Field name="userService" type="UserService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JFrame" name="registerJFrame"/>
+          <Argument type="JTextField" name="jtfName"/>
+          <Argument type="JTextField" name="jtfSurname"/>
+          <Argument type="JTextField" name="jtfEmail"/>
+          <Argument type="JPasswordField" name="jpfPassword"/>
+          <Argument type="JPasswordField" name="jpfPasswordConfirm"/>
+          <Argument type="JButton" name="jbtSubmit"/>
+          <Argument type="JLabel" name="jlbMsg"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="email"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ChangePasswordController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="1575.0">
+      <Fields>
+        <Field name="jpfOldPassword" type="JPasswordField" visibility="private"/>
+        <Field name="jpfNewPassword" type="JPasswordField" visibility="private"/>
+        <Field name="jpfConfirmPassword" type="JPasswordField" visibility="private"/>
+        <Field name="btnChangePassword" type="JButton" visibility="private"/>
+        <Field name="jlbMsg" type="JLabel" visibility="private"/>
+        <Field name="userService" type="UserService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPasswordField" name="jpfOldPassword"/>
+          <Argument type="JPasswordField" name="jpfNewPassword"/>
+          <Argument type="JPasswordField" name="jpfConfirmPassword"/>
+          <Argument type="JButton" name="btnChangePassword"/>
+          <Argument type="JLabel" name="jlbMsg"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Security" package="com.iamtienng.em.controller" visibility="public" xPosition="1944.0" yPosition="1081.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="decryptRSA" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="encryptedText"/>
+          <Argument type="PublicKey" name="publicKey"/>
+        </Method>
+        <Method name="encryptRSA" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="plainText"/>
+          <Argument type="PrivateKey" name="privateKey"/>
+        </Method>
+        <Method name="encryptTextUsingAES" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="plainText"/>
+          <Argument type="String" name="aesKeyString"/>
+        </Method>
+        <Method name="decryptTextUsingAES" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="encryptedText"/>
+          <Argument type="String" name="aesKeyString"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserAuthenticationController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="13.0">
+      <Fields>
+        <Field name="tokenGlobal" type="String" visibility="public" isStatic="true"/>
+        <Field name="nameGlobal" type="String" visibility="public" isStatic="true"/>
+        <Field name="surnameGlobal" type="String" visibility="public" isStatic="true"/>
+        <Field name="emailGlobal" type="String" visibility="public" isStatic="true"/>
+        <Field name="accountTypeGlobal" type="String" visibility="public" isStatic="true"/>
+        <Field name="dialog" type="Dialog" visibility="private"/>
+        <Field name="btnRegister" type="JButton" visibility="private"/>
+        <Field name="btnLogin" type="JButton" visibility="private"/>
+        <Field name="jtfEmail" type="JTextField" visibility="private"/>
+        <Field name="jpfPassword" type="JPasswordField" visibility="private"/>
+        <Field name="jlbMsg" type="JLabel" visibility="private"/>
+        <Field name="userService" type="UserService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Dialog" name="dialog"/>
+          <Argument type="JButton" name="btnRegister"/>
+          <Argument type="JButton" name="btnLogin"/>
+          <Argument type="JTextField" name="jtfEmail"/>
+          <Argument type="JPasswordField" name="jpfPassword"/>
+          <Argument type="JLabel" name="jlbMsg"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="md5" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="string"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HistoryController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="1890.0">
+      <Fields>
+        <Field name="jpnView" type="JPanel" visibility="private"/>
+        <Field name="btnAdd" type="JButton" visibility="private"/>
+        <Field name="jtfSearch" type="JTextField" visibility="private"/>
+        <Field name="historyService" type="HistoryService" visibility="private"/>
+        <Field name="rowSorter" type="TableRowSorter&lt;TableModel&gt;" visibility="private"/>
+        <Field name="listColumn" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPanel" name="jpnView"/>
+          <Argument type="JButton" name="btnAdd"/>
+          <Argument type="JTextField" name="jtfSearch"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDateToTable" returnType="void" visibility="public"/>
+        <Method name="setEvent" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ScreenChangeController" package="com.iamtienng.em.controller" visibility="public" xPosition="516.0" yPosition="873.0">
+      <Fields>
+        <Field name="jFrame" type="JFrame" visibility="private"/>
+        <Field name="btnLogOut" type="JButton" visibility="private"/>
+        <Field name="root" type="JPanel" visibility="private"/>
+        <Field name="kindSelected" type="String" visibility="private"/>
+        <Field name="listItem" type="List&lt;BeanList&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JFrame" name="jFrame"/>
+          <Argument type="JButton" name="btnLogOut"/>
+          <Argument type="JPanel" name="root"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setView" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jpnItem"/>
+          <Argument type="JLabel" name="jlbItem"/>
+        </Method>
+        <Method name="setEvent" returnType="void" visibility="public">
+          <Argument type="List&lt;BeanList&gt;" name="listItem"/>
+        </Method>
+        <Method name="setChangeBackground" returnType="void" visibility="private">
+          <Argument type="String" name="kind"/>
+        </Method>
+        <Method name="setLogOut" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="History" package="com.iamtienng.em.model" visibility="public" xPosition="1801.0" yPosition="1748.0">
+      <Fields>
+        <Field name="token" type="String" visibility="private"/>
+        <Field name="url" type="String" visibility="private"/>
+        <Field name="idolRecognized" type="String" visibility="private"/>
+        <Field name="success" type="boolean" visibility="private"/>
+        <Field name="visible" type="boolean" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getToken" returnType="String" visibility="public"/>
+        <Method name="setToken" returnType="void" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+        <Method name="getUrl" returnType="String" visibility="public"/>
+        <Method name="setUrl" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+        <Method name="getIdolRecognized" returnType="String" visibility="public"/>
+        <Method name="setIdolRecognized" returnType="void" visibility="public">
+          <Argument type="String" name="idolRecognized"/>
+        </Method>
+        <Method name="isSuccess" returnType="boolean" visibility="public"/>
+        <Method name="setSuccess" returnType="void" visibility="public">
+          <Argument type="boolean" name="success"/>
+        </Method>
+        <Method name="isVisible" returnType="boolean" visibility="public"/>
+        <Method name="setVisible" returnType="void" visibility="public">
+          <Argument type="boolean" name="visible"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IdolRecognitorJPanel" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="2187.0">
+      <Fields>
+        <Field name="btnAdd1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jDialog1" type="javax.swing.JDialog" visibility="private"/>
+        <Field name="jDialog2" type="javax.swing.JDialog" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jlbMsg" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jpnView" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jtfSearh" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="btnAdd1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jtfSearhActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserAuthenticationJDialog" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="13.0">
+      <Fields>
+        <Field name="btnLogin" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnRegister" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jlbMsg" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jpfPassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jtfEmail" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="java.awt.Frame" name="parent"/>
+          <Argument type="boolean" name="modal"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="jtfEmailActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HistoryJPanel" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="1890.0">
+      <Fields>
+        <Field name="btnAdd" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnView" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jtfSearh" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="btnAddActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jtfSearhActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainJFrame" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="873.0">
+      <Fields>
+        <Field name="btnLogOut" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jlbHistory" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbIdolRecognitor" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbProfile" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbiamtienng" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jpnHistory" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnIdolRocognitor" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnMenu" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnProfile" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnRoot" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpnView" type="javax.swing.JPanel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="btnLogOutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ChangePasswordJFrame" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="1575.0">
+      <Fields>
+        <Field name="btnChangePassword" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jlbMsg" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jpfConfirmPassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jpfNewPassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jpfOldPassword" type="javax.swing.JPasswordField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserCreateNewUserJFrame" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="466.0">
+      <Fields>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jbtSubmit" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jlbMsg" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jpfPassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jpfPasswordConfirm" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jtfEmail" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jtfName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jtfSurname" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProfileJPanel" package="com.iamtienng.em.view" visibility="public" xPosition="15.0" yPosition="1256.0">
+      <Fields>
+        <Field name="btnChangePassword" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jlbAccountType" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbEmail" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbName" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlbSurname" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="HistoryServiceImpl" package="com.iamtienng.em.service" visibility="public" xPosition="1012.0" yPosition="2004.0">
+      <Fields>
+        <Field name="historyDAO" type="HistoryDAO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getList" returnType="List&lt;History&gt;" visibility="public"/>
+        <Method name="deleteHistory" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IdolServiceImpl" package="com.iamtienng.em.service" visibility="public" xPosition="1123.0" yPosition="2306.0">
+      <Fields>
+        <Field name="idolDAO" type="IdolDAO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="findIdol" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserServiceImpl" package="com.iamtienng.em.service" visibility="public" xPosition="1452.0" yPosition="13.0">
+      <Fields>
+        <Field name="userDAO" type="UserDAO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="checkUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getUserInfo" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="changePassword" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="oldPassword"/>
+          <Argument type="String" name="newPassword"/>
+        </Method>
+        <Method name="createNewUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="com.iamtienng.em.main" visibility="public" xPosition="1944.0" yPosition="838.0">
+      <Fields>
+        <Field name="aes256key" type="String" visibility="public" isStatic="true"/>
+        <Field name="privateKey" type="PrivateKey" visibility="public" isStatic="true"/>
+        <Field name="publicKey" type="PublicKey" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getRSAPrivateKey" returnType="PrivateKey" visibility="private" isStatic="true"/>
+        <Method name="getRSAPublicKey" returnType="PublicKey" visibility="private" isStatic="true"/>
+        <Method name="readLineByLineJava8" returnType="String" visibility="private" isStatic="true">
+          <Argument type="String" name="filePath"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HistoryTableModel" package="com.iamtienng.em.utility" visibility="public" xPosition="2183.0" yPosition="1890.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="setTableHistory" returnType="DefaultTableModel" visibility="public">
+          <Argument type="List&lt;History&gt;" name="listItem"/>
+          <Argument type="String[]" name="listColumn"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="UserDAO" package="com.iamtienng.em.dao" visibility="public" xPosition="2007.0" yPosition="13.0">
+      <Methods>
+        <Method name="checkUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getUserInfo" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="changePassword" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="oldPassword"/>
+          <Argument type="String" name="newPassword"/>
+        </Method>
+        <Method name="createNewUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="HistoryDAO" package="com.iamtienng.em.dao" visibility="public" xPosition="1308.0" yPosition="1890.0">
+      <Methods>
+        <Method name="getList" returnType="List&lt;History&gt;" visibility="public"/>
+        <Method name="deleteHistory" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IdolDAO" package="com.iamtienng.em.dao" visibility="public" xPosition="1452.0" yPosition="2187.0">
+      <Methods>
+        <Method name="findIdol" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="UserService" package="com.iamtienng.em.service" visibility="public" xPosition="1452.0" yPosition="209.0">
+      <Methods>
+        <Method name="checkUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getUserInfo" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="changePassword" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="oldPassword"/>
+          <Argument type="String" name="newPassword"/>
+        </Method>
+        <Method name="createNewUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="HistoryService" package="com.iamtienng.em.service" visibility="public" xPosition="1012.0" yPosition="1890.0">
+      <Methods>
+        <Method name="getList" returnType="List&lt;History&gt;" visibility="public"/>
+        <Method name="deleteHistory" returnType="boolean" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IdolService" package="com.iamtienng.em.service" visibility="public" xPosition="1123.0" yPosition="2187.0">
+      <Methods>
+        <Method name="findIdol" returnType="JSONObject" visibility="public">
+          <Argument type="String" name="token"/>
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.dao.UserDAOImpl" target="com.iamtienng.em.dao.UserDAO"/>
+    <HasRelation name="historyDAO" source="com.iamtienng.em.service.HistoryServiceImpl" target="com.iamtienng.em.dao.HistoryDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.service.IdolServiceImpl" target="com.iamtienng.em.service.IdolService"/>
+    <HasRelation name="userDAO" source="com.iamtienng.em.service.UserServiceImpl" target="com.iamtienng.em.dao.UserDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.iamtienng.em.utility.HistoryTableModel" target="com.iamtienng.em.model.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.iamtienng.em.controller.ScreenChangeController" target="com.iamtienng.em.bean.BeanList" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userService" source="com.iamtienng.em.controller.UserCreateNewUserController" target="com.iamtienng.em.service.UserService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listItem" source="com.iamtienng.em.controller.ScreenChangeController" target="com.iamtienng.em.bean.BeanList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;BeanList&gt;"/>
+    <UseRelation source="com.iamtienng.em.service.HistoryServiceImpl" target="com.iamtienng.em.model.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.iamtienng.em.service.HistoryService" target="com.iamtienng.em.model.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="idolDAO" source="com.iamtienng.em.service.IdolServiceImpl" target="com.iamtienng.em.dao.IdolDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.iamtienng.em.dao.HistoryDAOImpl" target="com.iamtienng.em.model.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userService" source="com.iamtienng.em.controller.UserAuthenticationController" target="com.iamtienng.em.service.UserService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="historyService" source="com.iamtienng.em.controller.HistoryController" target="com.iamtienng.em.service.HistoryService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userService" source="com.iamtienng.em.controller.ChangePasswordController" target="com.iamtienng.em.service.UserService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.dao.IdolDAOImpl" target="com.iamtienng.em.dao.IdolDAO"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.service.UserServiceImpl" target="com.iamtienng.em.service.UserService"/>
+    <HasRelation name="idolService" source="com.iamtienng.em.controller.IdolRecognitorController" target="com.iamtienng.em.service.IdolService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.iamtienng.em.dao.HistoryDAO" target="com.iamtienng.em.model.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.dao.HistoryDAOImpl" target="com.iamtienng.em.dao.HistoryDAO"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.iamtienng.em.service.HistoryServiceImpl" target="com.iamtienng.em.service.HistoryService"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

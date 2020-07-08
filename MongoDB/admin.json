@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "5effca5ec63887601e14ac65"
+  },
+  "name": "Admin",
+  "surname": "Admin",
+  "email": "admin@admin.com",
+  "password": "1dae3fba29026e7702f38aca78a6f460",
+  "token": "c7163b4321b96df45a4f2bb1ea02a344",
+  "accountType": "free"
+}]

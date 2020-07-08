@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "5efd25865dd623ccba33e9cf"
+  },
+  "name": "Tien",
+  "surname": "Nguyen",
+  "email": "iamtienng@gmail.com",
+  "password": "b04a6e564105ffb9a9fcca3fafcc834e",
+  "token": "6140f55326a5156cdaaf5e69d2b14dec",
+  "accountType": "free"
+},{
+  "_id": {
+    "$oid": "5efd267f5dd623ccba33e9d3"
+  },
+  "name": "Ronald",
+  "surname": "Quinn",
+  "email": "ronaldaquinn@example.com",
+  "password": "b04a6e564105ffb9a9fcca3fafcc834e",
+  "token": "51293e0516e0c19afa38dfdf69179535",
+  "accountType": "free"
+}]

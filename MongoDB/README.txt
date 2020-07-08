@@ -1,0 +1,1 @@
+Create a database named idolrecognition and then import 5 collections
