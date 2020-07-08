@@ -16,6 +16,7 @@ From that idea, I decided to go to the Microsoft API to create a celebrity datab
 
 ### Installation
 * Open 3 Projects in NetBeans and run
+* Locate Java Library in Library folder if needed
 * Change your Face API Subscription Key and Bing Image Search API Subscription Key in IdolrecognitionserverApplication.java
 * Idolrecognitionserver
 * IdolRecognitionClient
