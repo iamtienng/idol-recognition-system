@@ -29,3 +29,18 @@ From that idea, I decided to go to the Microsoft API to create a celebrity datab
 ### Credits
 - The Idol Recognition System is a full-stack project built with Spring and Swing developed by Tien Nguyen.
 - Initial concept and development was done by Tien Nguyen.
+
+### Sample pictures
+* Client side
+<BR>Recognize Idol with Image URL:
+  ![alt text](https://raw.githubusercontent.com/iamtienng/Idol-Recognition-System/master/Samples/Picture1.png?token=AIN2U5UWII7HORNIHZ6FU5K7B3LK4)
+<BR>See History of what they found:
+  ![alt text](https://raw.githubusercontent.com/iamtienng/Idol-Recognition-System/master/Samples/Picture2.png?token=AIN2U5XRGEJA5O4XYSCNPHC7B3LLE)
+  
+* Admin side
+<BR>Add new Idol:
+  ![alt text](https://raw.githubusercontent.com/iamtienng/Idol-Recognition-System/master/Samples/Picture3.png?token=AIN2U5XBEMHS4ECAE66XQOK7B3LLM)
+<BR>See all users list:
+  ![alt text](https://raw.githubusercontent.com/iamtienng/Idol-Recognition-System/master/Samples/Picture4.png?token=AIN2U5SBPXCFU6VEAWVMBLC7B3LLW)
+<BR>See all idols list:
+  ![alt text](https://raw.githubusercontent.com/iamtienng/Idol-Recognition-System/master/Samples/Picture5.png?token=AIN2U5UIECIJK5PFIRUFLGK7B3LL6)
