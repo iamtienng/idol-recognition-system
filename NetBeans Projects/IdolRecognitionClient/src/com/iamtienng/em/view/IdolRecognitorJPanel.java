@@ -16,7 +16,7 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
     public IdolRecognitorJPanel() {
         initComponents();
 
-        IdolRecognitorController controller = new IdolRecognitorController(jpnView, btnAdd1, jtfSearh, jlbMsg);
+        IdolRecognitorController controller = new IdolRecognitorController(jpnView, btnAdd1, jtfSearh, jlbMsg, jPanelVote, jRBTruePositive, jRBFalsePositive, jRBFalseNegative, jRBTrueNegative, jButtonSubmit, jLabelMessage, confusionMatrix);
         controller.setEvent();
     }
 
@@ -31,11 +31,23 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
 
         jDialog1 = new javax.swing.JDialog();
         jDialog2 = new javax.swing.JDialog();
+        confusionMatrix = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jpnView = new javax.swing.JPanel();
         jtfSearh = new javax.swing.JTextField();
         btnAdd1 = new javax.swing.JButton();
         jlbMsg = new javax.swing.JLabel();
+        jPanelVote = new javax.swing.JPanel();
+        jRBTruePositive = new javax.swing.JRadioButton();
+        jRBFalsePositive = new javax.swing.JRadioButton();
+        jRBFalseNegative = new javax.swing.JRadioButton();
+        jRBTrueNegative = new javax.swing.JRadioButton();
+        jButtonSubmit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelMessage = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -74,6 +86,79 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
             }
         });
 
+        confusionMatrix.add(jRBTruePositive);
+        jRBTruePositive.setText("True  Positive");
+
+        confusionMatrix.add(jRBFalsePositive);
+        jRBFalsePositive.setText("False Positive");
+
+        confusionMatrix.add(jRBFalseNegative);
+        jRBFalseNegative.setText("False Negative");
+
+        confusionMatrix.add(jRBTrueNegative);
+        jRBTrueNegative.setText("True  Negative");
+
+        jButtonSubmit.setText("Submit");
+
+        jLabel1.setText("True Positive: Idols are correctly identified.");
+
+        jLabel2.setText("False Negative: Someone is identified but incorrect because it's not Idol in database.");
+
+        jLabel4.setText("False Negative: Idol is in the image and in the database but it is not recognized.");
+
+        jLabel5.setText("True Negative: The person in the picture is not an idol in the database.");
+
+        javax.swing.GroupLayout jPanelVoteLayout = new javax.swing.GroupLayout(jPanelVote);
+        jPanelVote.setLayout(jPanelVoteLayout);
+        jPanelVoteLayout.setHorizontalGroup(
+            jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVoteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelVoteLayout.createSequentialGroup()
+                        .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRBTruePositive)
+                            .addComponent(jRBFalsePositive))
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRBTrueNegative)
+                            .addComponent(jRBFalseNegative)))
+                    .addGroup(jPanelVoteLayout.createSequentialGroup()
+                        .addComponent(jButtonSubmit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelMessage))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelVoteLayout.setVerticalGroup(
+            jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVoteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRBTruePositive)
+                    .addComponent(jRBFalseNegative))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRBFalsePositive)
+                    .addComponent(jRBTrueNegative))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelVoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSubmit)
+                    .addComponent(jLabelMessage))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jpnViewLayout = new javax.swing.GroupLayout(jpnView);
         jpnView.setLayout(jpnViewLayout);
         jpnViewLayout.setHorizontalGroup(
@@ -81,6 +166,7 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
             .addGroup(jpnViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelVote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtfSearh, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                     .addGroup(jpnViewLayout.createSequentialGroup()
                         .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -94,10 +180,12 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jtfSearh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(178, 178, 178))
+                .addGroup(jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelVote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -133,9 +221,21 @@ public class IdolRecognitorJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd1;
+    private javax.swing.ButtonGroup confusionMatrix;
+    private javax.swing.JButton jButtonSubmit;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelMessage;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelVote;
+    private javax.swing.JRadioButton jRBFalseNegative;
+    private javax.swing.JRadioButton jRBFalsePositive;
+    private javax.swing.JRadioButton jRBTrueNegative;
+    private javax.swing.JRadioButton jRBTruePositive;
     private javax.swing.JLabel jlbMsg;
     private javax.swing.JPanel jpnView;
     private javax.swing.JTextField jtfSearh;

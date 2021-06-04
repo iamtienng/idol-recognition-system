@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="idolrecognitionserver">
+  <ClassDiagramComponents>
+    <Interface name="RegexTools" package="abstracts" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="isValid" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="SecurityTools" package="abstracts" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Methods>
+        <Method name="md5" returnType="String" visibility="public">
+          <Argument type="String" name="string"/>
+        </Method>
+        <Method name="createRandomCode" returnType="String" visibility="public">
+          <Argument type="int" name="codeLength"/>
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="IdolrecognitionserverApplication" package="me.iamtienng.idolrecognitionserver" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="aes256key" type="String" visibility="public" isStatic="true"/>
+        <Field name="privateKey" type="PrivateKey" visibility="public" isStatic="true"/>
+        <Field name="publicKey" type="PublicKey" visibility="public" isStatic="true"/>
+        <Field name="mongoClient" type="MongoClient" visibility="public" isStatic="true"/>
+        <Field name="database" type="MongoDatabase" visibility="public" isStatic="true"/>
+        <Field name="subscriptionKey" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="groupId" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="subscriptionKeyIndex" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="subscriptionKeyBingSearch" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getRSAPrivateKey" returnType="PrivateKey" visibility="private" isStatic="true"/>
+        <Method name="getRSAPublicKey" returnType="PublicKey" visibility="private" isStatic="true"/>
+        <Method name="readLineByLineJava8" returnType="String" visibility="private" isStatic="true">
+          <Argument type="String" name="filePath"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserAccounting" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="findIdol" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="data"/>
+        </Method>
+        <Method name="userMatrixVoteFunction" returnType="Boolean" visibility="public" isStatic="true">
+          <Argument type="JSONObject" name="data"/>
+        </Method>
+        <Method name="getHistories" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="data"/>
+        </Method>
+        <Method name="deleteHistory" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="data"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IdolRecognition" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="detect" returnType="JSONArray" visibility="public" isStatic="true">
+          <Argument type="String" name="imageURL"/>
+        </Method>
+        <Method name="identify" returnType="JSONArray" visibility="public" isStatic="true">
+          <Argument type="String" name="faceId"/>
+        </Method>
+        <Method name="recognize" returnType="JSONObject" visibility="public" isStatic="true">
+          <Argument type="String" name="imageUrl"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserAuthentication" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AdminTools" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getMatrixFunction" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="deleteUserFunction" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getAllIdol" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="indexNewIdol" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="idolName"/>
+        </Method>
+        <Method name="editIdolFunction" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="deleteIdolFunction" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Security" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="decryptRSA" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="encryptedText"/>
+          <Argument type="PublicKey" name="publicKey"/>
+        </Method>
+        <Method name="encryptRSA" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="plainText"/>
+          <Argument type="PrivateKey" name="privateKey"/>
+        </Method>
+        <Method name="encryptTextUsingAES" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="plainText"/>
+          <Argument type="String" name="aesKeyString"/>
+        </Method>
+        <Method name="decryptTextUsingAES" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="encryptedText"/>
+          <Argument type="String" name="aesKeyString"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RestSystemController" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="userAuthentication" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="createUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="changeUserPassword" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="findUserInfo" returnType="String" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="getIdol" returnType="String" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="userMatrixVote" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="getAllHistory" returnType="String" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="deleteAllHistories" returnType="void" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="adminAuthentication" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="createAdmin" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="getAllUsers" returnType="String" visibility="public"/>
+        <Method name="editUser" returnType="String" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="deleteUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="getAllIdols" returnType="String" visibility="public"/>
+        <Method name="indexAddNewIdol" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="editIdol" returnType="String" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="deleteIdol" returnType="boolean" visibility="public">
+          <Argument type="String" name="dataRaw"/>
+        </Method>
+        <Method name="getMatrix" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddNewIndexIdol" package="me.iamtienng.idolrecognitionserver.controller" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="indexAddNewIdol" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="idolName"/>
+        </Method>
+        <Method name="getImage" returnType="JSONArray" visibility="public" isStatic="true">
+          <Argument type="String" name="idolName"/>
+        </Method>
+        <Method name="getIdolData" returnType="JSONArray" visibility="public" isStatic="true">
+          <Argument type="ArrayList&lt;String&gt;" name="idolList"/>
+        </Method>
+        <Method name="readLineByLineJava8" returnType="String" visibility="private" isStatic="true">
+          <Argument type="String" name="filePath"/>
+        </Method>
+        <Method name="submitIdol" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JSONObject" name="idol"/>
+        </Method>
+        <Method name="submitIdolFace" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="personId"/>
+          <Argument type="String" name="faceUrl"/>
+        </Method>
+        <Method name="exportIdolJson" returnType="void" visibility="public" isStatic="true">
+          <Argument type="ArrayList&lt;String&gt;" name="idolList"/>
+        </Method>
+        <Method name="trainIdol" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="insertCosmosDB" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="People" package="me.iamtienng.idolrecognitionserver.model" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="type" type="String" visibility="protected"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="surname" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="token" type="String" visibility="private"/>
+        <Field name="accountType" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getSurname" returnType="String" visibility="public"/>
+        <Method name="setSurname" returnType="void" visibility="public">
+          <Argument type="String" name="surname"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getToken" returnType="String" visibility="public"/>
+        <Method name="setToken" returnType="void" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+        <Method name="setAccountType" returnType="void" visibility="public">
+          <Argument type="String" name="accountType"/>
+        </Method>
+        <Method name="loginConfirm" returnType="Boolean" visibility="public"/>
+        <Method name="newPeople" returnType="boolean" visibility="public"/>
+        <Method name="getInfo" returnType="String" visibility="public"/>
+        <Method name="changePassword" returnType="Boolean" visibility="public">
+          <Argument type="String" name="newPassword"/>
+        </Method>
+        <Method name="md5" returnType="String" visibility="public">
+          <Argument type="String" name="string"/>
+        </Method>
+        <Method name="createRandomCode" returnType="String" visibility="public">
+          <Argument type="int" name="codeLength"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="isValid" returnType="boolean" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="me.iamtienng.idolrecognitionserver.model" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="newPeople" returnType="boolean" visibility="public"/>
+        <Method name="getAllUser" returnType="String" visibility="public"/>
+        <Method name="editUserFunction" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="accountType"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="me.iamtienng.idolrecognitionserver.model" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getHistories" returnType="String" visibility="public">
+          <Argument type="String" name="data"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Idol" package="me.iamtienng.idolrecognitionserver.model" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="userData" type="String" visibility="private"/>
+        <Field name="personId" type="String" visibility="private"/>
+        <Field name="url" type="String" visibility="private"/>
+        <Field name="returnData" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getReturnData" returnType="String" visibility="public"/>
+        <Method name="setReturnData" returnType="void" visibility="public">
+          <Argument type="String" name="returnData"/>
+        </Method>
+        <Method name="getUrl" returnType="String" visibility="public"/>
+        <Method name="setUrl" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getUserData" returnType="String" visibility="public"/>
+        <Method name="setUserData" returnType="void" visibility="public">
+          <Argument type="String" name="userData"/>
+        </Method>
+        <Method name="getPersonId" returnType="String" visibility="public"/>
+        <Method name="setPersonId" returnType="void" visibility="public">
+          <Argument type="String" name="personId"/>
+        </Method>
+        <Method name="findIdol" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="History" package="me.iamtienng.idolrecognitionserver.model" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="token" type="String" visibility="private"/>
+        <Field name="url" type="String" visibility="private"/>
+        <Field name="idolRecognized" type="String" visibility="private"/>
+        <Field name="success" type="Boolean" visibility="private"/>
+        <Field name="visible" type="Boolean" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="truePositive" type="Boolean" visibility="private"/>
+        <Field name="falseNegative" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getToken" returnType="String" visibility="public"/>
+        <Method name="setToken" returnType="void" visibility="public">
+          <Argument type="String" name="token"/>
+        </Method>
+        <Method name="getUrl" returnType="String" visibility="public"/>
+        <Method name="setUrl" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+        <Method name="getIdolRecognized" returnType="String" visibility="public"/>
+        <Method name="setIdolRecognized" returnType="void" visibility="public">
+          <Argument type="String" name="idolRecognized"/>
+        </Method>
+        <Method name="getSuccess" returnType="Boolean" visibility="public"/>
+        <Method name="setSuccess" returnType="void" visibility="public">
+          <Argument type="Boolean" name="success"/>
+        </Method>
+        <Method name="getVisible" returnType="Boolean" visibility="public"/>
+        <Method name="setVisible" returnType="void" visibility="public">
+          <Argument type="Boolean" name="visible"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="getTruePositive" returnType="Boolean" visibility="public"/>
+        <Method name="setTruePositive" returnType="void" visibility="public">
+          <Argument type="Boolean" name="truePositive"/>
+        </Method>
+        <Method name="getFalseNegative" returnType="Boolean" visibility="public"/>
+        <Method name="setFalseNegative" returnType="void" visibility="public">
+          <Argument type="Boolean" name="falseNegative"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="me.iamtienng.idolrecognitionserver.model.People" target="abstracts.SecurityTools"/>
+    <IsRelation name="is" source="me.iamtienng.idolrecognitionserver.model.Admin" target="me.iamtienng.idolrecognitionserver.model.People"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="me.iamtienng.idolrecognitionserver.model.People" target="abstracts.RegexTools"/>
+    <IsRelation name="is" source="me.iamtienng.idolrecognitionserver.model.User" target="me.iamtienng.idolrecognitionserver.model.People"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

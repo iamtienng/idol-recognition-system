@@ -52,7 +52,7 @@ public class ChangePasswordController {
                 } else {
                     Boolean checkPassword = userService.changePassword(UserAuthenticationController.tokenGlobal, String.valueOf(jpfOldPassword.getPassword()), String.valueOf(jpfNewPassword.getPassword()));
 
-                    System.out.println(checkPassword.toString());
+//                    System.out.println(checkPassword.toString());
                     if (checkPassword) {
                         jlbMsg.setText("Success change Password.");
                     } else {

@@ -60,4 +60,35 @@ public class IdolDAOImpl implements IdolDAO {
         return null;
     }
 
+    @Override
+    public boolean submitMatrix(String idHistory, Boolean truePositve, Boolean falsePositive, Boolean falseNegative, Boolean trueNegative) {
+        String body = "{\"id\": \"" + idHistory + "\",\"truePositive\":\"" + truePositve + "\",\"falsePositive\":\"" + falsePositive + "\",\"falseNegative\":\"" + falseNegative + "\",\"trueNegative\":\"" + trueNegative + "\"}";
+        try {
+            body = encryptRSA(body, privateKey);
+        } catch (Exception ex) {
+            Logger.getLogger(IdolRecognitorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        HttpClient httpclient = HttpClientBuilder.create().build();
+        try {
+            URIBuilder builder = new URIBuilder("http://localhost:80/matrixVote");
+            URI uri = builder.build();// Prepare the URI for the REST API call.
+            HttpPost request = new HttpPost(uri);
+            StringEntity reqEntity = new StringEntity(body);// Request body.
+            request.setEntity(reqEntity);
+            HttpResponse response = httpclient.execute(request);// Execute the REST API call and get the response entity.
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                // Format and display the JSON response.
+                String jsonString = EntityUtils.toString(entity).trim();
+//                jsonString = decryptRSA(jsonString, publicKey);
+                return true;
+            }
+        } catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+        return false;
+    }
+
 }

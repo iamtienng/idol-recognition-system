@@ -36,6 +36,8 @@ public class IdolrecognitionserverApplication {
 
     public static final String subscriptionKeyIndex = "fe5f2a02ba964c998f3a267193f5032f";
 
+    public static final String subscriptionKeyBingSearch = "0fa8c3c6b98a4cf49261f8967f53502a";
+
     public static void main(String[] args) throws InvalidKeySpecException, NoSuchAlgorithmException {
         privateKey = getRSAPrivateKey();
         publicKey = getRSAPublicKey();

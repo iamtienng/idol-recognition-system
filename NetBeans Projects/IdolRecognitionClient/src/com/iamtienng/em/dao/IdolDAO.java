@@ -15,4 +15,5 @@ public interface IdolDAO {
 
     public JSONObject findIdol(String token, String url);
 
+    public boolean submitMatrix(String idHistory, Boolean truePositve, Boolean falsePositive, Boolean falseNegative, Boolean trueNegative);
 }

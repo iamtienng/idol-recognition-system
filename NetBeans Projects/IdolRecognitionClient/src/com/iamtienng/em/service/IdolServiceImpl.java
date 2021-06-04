@@ -26,4 +26,9 @@ public class IdolServiceImpl implements IdolService {
         return idolDAO.findIdol(token, url);
     }
 
+    @Override
+    public boolean submitMatrix(String idHistory, Boolean truePositve, Boolean falsePositive, Boolean falseNegative, Boolean trueNegative) {
+        return idolDAO.submitMatrix(idHistory, truePositve, falsePositive, falseNegative, trueNegative);
+    }
+
 }
